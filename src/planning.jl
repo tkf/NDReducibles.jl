@@ -88,6 +88,7 @@ bcaxeslayout(x::HasFast{N}, y::HasFast{M}) where {N, M} =
 struct Index{x} end
 const Indices{N} = NTuple{N, Index}
 
+Index(x::Index) = x
 Index(x) = Index{x}()
 
 indexname(::Index{x}) where x = x
