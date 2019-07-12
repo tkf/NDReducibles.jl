@@ -4,7 +4,7 @@ using MacroTools
 using NDReducibles
 using NDReducibles: AccessPattern, Index, plan
 
-_plan(pairs...) = plan(AccessPattern.(pairs)...)
+_plan(pairs...) = plan(map(AccessPattern, pairs)...)
 _indices(idxs::String) = Index.(Tuple(Symbol.(collect(idxs))))
 
 ND(n) = zeros(ntuple(_ -> 0, n))

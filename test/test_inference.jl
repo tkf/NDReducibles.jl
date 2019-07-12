@@ -13,8 +13,13 @@ f2() = _plan(
 )
 
 @testset begin
-    # @test_inferred f1()  # running this twice in REPL makes it pass...
-    @test_broken_inferred f2()
+    if VERSION < v"1.2-"
+        @test_broken_inferred f1()
+        @test_broken_inferred f2()
+    else
+        @test_inferred f1()
+        @test_inferred f2()
+    end
 end
 
 end  # module

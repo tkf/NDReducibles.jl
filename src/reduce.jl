@@ -1,5 +1,5 @@
 function ndreducible(pairs...)
-    patterns = AccessPattern.(pairs)
+    patterns = map(AccessPattern, pairs)
     # TODO: check consistency of patterns
     return NDReducible(patterns, plan(patterns...))
 end
