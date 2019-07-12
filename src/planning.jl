@@ -111,6 +111,47 @@ end
 
 Try to find an index that is categorized as "fast" for all `args` with
 such index.
+
+# Examples
+```jldoctest
+julia> using NDReducibles: plan, AccessPattern
+
+julia> _plan(pairs...) = plan(map(AccessPattern, pairs)...);
+
+julia> A1 = ones(0)
+       A2 = ones(0, 0)
+       A3 = ones(0, 0, 0)
+       A4 = ones(0, 0, 0, 0);
+
+julia> _plan(
+           A1 => (:i,),
+           A2 => (:i, :j),
+       )
+AccessPlan: j → i
+
+julia> _plan(
+           A1 => (:i,),
+           A2 => (:j, :i),
+           A2 => (:j, :k),
+       )
+AccessPlan: i → k → j
+
+julia> _plan(
+           A1 => (:i,),
+           A2' => (:j, :i),
+           A2 => (:j, :k),
+       )
+AccessPlan: j → k → i
+
+julia> _plan(
+           A1 => (:i,),
+           A2' => (:i, :j),
+           A2 => (:i, :j),
+           A3 => (:k, :i, :j),
+           A4 => (:k, :j, :l, :m),
+       )
+AccessPlan: i → j → l → m → k
+```
 """
 function plan(args::AccessPattern...)
     allindices = foldlargs((), args...) do indices, pattern

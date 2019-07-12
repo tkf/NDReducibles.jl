@@ -5,6 +5,7 @@ makedocs(;
     format=Documenter.HTML(),
     pages=[
         "Home" => "index.md",
+        hide("internals.md"),
     ],
     repo="https://github.com/tkf/NDReducibles.jl/blob/{commit}{path}#L{line}",
     sitename="NDReducibles.jl",
