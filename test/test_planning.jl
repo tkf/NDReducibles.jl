@@ -7,36 +7,36 @@ include("preamble.jl")
     A2 = ones(0, 0)
     A3 = ones(0, 0, 0)
     A4 = ones(0, 0, 0, 0)
-    @test _plan(
+    @test plan(
         A1 => (:i,),
         A2 => (:i, :j),
     ).indices === _indices("ji")
-    @test _plan(
+    @test plan(
         A1 => (:i,),
         A2 => (:j, :i),
         A2 => (:j, :k),
     ).indices === _indices("ikj")
-    @test _plan(
+    @test plan(
         A1 => (:i,),
         A2' => (:j, :i),
         A2 => (:j, :k),
     ).indices === _indices("jki")
-    @test _plan(
+    @test plan(
         A1 => (:i,),
         transpose(A2) => (:j, :i),
         A2 => (:j, :k),
     ).indices === _indices("jki")
-    @test _plan(
+    @test plan(
         A1 => (:i,),
         A2' => (:j, :i),
         A2' => (:j, :k),
     ).indices === _indices("jik")
-    @test _plan(
+    @test plan(
         A1 => (:i,),
         A2' => (:i, :j),
         A2' => (:k, :j),
     ).indices === _indices("ikj")
-    @test _plan(
+    @test plan(
         A1 => (:i,),
         A2' => (:i, :j),
         A2 => (:i, :j),

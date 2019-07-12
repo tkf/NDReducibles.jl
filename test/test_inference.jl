@@ -2,12 +2,12 @@ module TestInference
 
 include("preamble.jl")
 
-f1() = _plan(
+f1() = plan(
     ND(1) => (Index(:i),),
     ND(2) => (Index(:i), Index(:j)),
 )
 
-f2() = _plan(
+f2() = plan(
     ND(1) => (:i,),
     ND(2) => (:i, :j),
 )
