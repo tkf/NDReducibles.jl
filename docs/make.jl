@@ -10,6 +10,7 @@ makedocs(;
     repo="https://github.com/tkf/NDReducibles.jl/blob/{commit}{path}#L{line}",
     sitename="NDReducibles.jl",
     authors="Takafumi Arakaki <aka.tkf@gmail.com>",
+    strict = v"1.0" <= VERSION < v"1.2-",
 )
 
 deploydocs(;
