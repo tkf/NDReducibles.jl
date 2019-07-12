@@ -13,7 +13,7 @@ f2() = _plan(
 )
 
 @testset begin
-    # @test_inferred f1()  # running this twice in REPL makes it pass...
+    @test_inferred f1()  # running this twice in REPL makes it pass...
     @test_broken_inferred f2()
 end
 
