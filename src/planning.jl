@@ -100,7 +100,7 @@ end
 
 Base.ndims(p::AccessPattern) = ndims(p.indexable)
 
-AccessPattern(pair::Pair) = AccessPattern(pair[1], Index.(pair[2]))
+AccessPattern(pair::Pair) = AccessPattern(pair[1], map(Index, pair[2]))
 
 struct AccessPlan{T <: Indices}
     indices::T
