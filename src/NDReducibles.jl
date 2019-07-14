@@ -11,7 +11,7 @@ using Base.Broadcast: Broadcasted
 
 using LinearAlgebra: Adjoint, Transpose
 using Transducers:
-    @next,
+    @next!,
     @return_if_reduced,
     @simd_if,
     Foldable,

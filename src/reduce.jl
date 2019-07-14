@@ -128,7 +128,7 @@ end
 @inline function _ndreduce(rf, acc, accessed, indexmap0, patterns, i)
     @simd_if rf for j in axisfor(patterns, i)
         indexmap = (indexmap0..., i => j)
-        acc = @next(rf, acc, tryaccess(patterns, indexmap, accessed))
+        @next!(rf, acc, tryaccess(patterns, indexmap, accessed))
     end
     return acc
 end
