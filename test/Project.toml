@@ -1,5 +1,8 @@
 [deps]
+IRTest = "c9680f28-2a59-47f6-98e4-d41620d42cd2"
+InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
 MacroTools = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
 NDReducibles = "e7e9fd8f-232e-4126-95ea-53110d05d1fe"
+Referenceables = "42d2dcc6-99eb-4e98-b66c-637b7d73030e"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 Transducers = "28d57a85-8fef-5791-bfe6-a80928e7c999"

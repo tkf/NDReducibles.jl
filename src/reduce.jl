@@ -103,7 +103,7 @@ end
 
 struct NAY end  # not accessed yet
 
-function Transducers.__foldl__(rf, acc, coll::NDReducible)
+@inline function Transducers.__foldl__(rf, acc, coll::NDReducible)
     accessed = ntuple(_ -> NAY(), length(coll.patterns))
     result = _ndreduce(rf, acc, accessed, (), coll.patterns, coll.plan.indices...)
     @return_if_reduced result

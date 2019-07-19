@@ -49,6 +49,14 @@ uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 deps = ["Random"]
 uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
+[[IRTest]]
+deps = ["Test"]
+git-tree-sha1 = "97684b5fe252d479eec33b19eb43e30731b0586f"
+repo-rev = "master"
+repo-url = "https://github.com/tkf/IRTest.jl"
+uuid = "c9680f28-2a59-47f6-98e4-d41620d42cd2"
+version = "0.1.0"
+
 [[InitialValues]]
 git-tree-sha1 = "00fc3631033606a66b6eebce4b020ad21abd5243"
 uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
@@ -111,6 +119,11 @@ uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 [[Random]]
 deps = ["Serialization"]
 uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+
+[[Referenceables]]
+git-tree-sha1 = "4a32b1dd124a846580608eb347d4337f873c2499"
+uuid = "42d2dcc6-99eb-4e98-b66c-637b7d73030e"
+version = "0.1.0"
 
 [[Requires]]
 deps = ["Test"]
