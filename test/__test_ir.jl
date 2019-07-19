@@ -19,5 +19,12 @@ end
 
 @testset "ndrmul!" begin
     M = ones(0, 0)
-    @test nmatches(r"fmul contract <4 x double>", llvm_ir(ndrmul!, (M, M, M))) >= 4
+    if VERSION < v"1.2-"
+        CAB = _ndrmul_reducible(M, M, M)
+        rf = _ndrmul_rf()
+        ir = llvm_ir(transduce, (rf, nothing, CAB))
+    else
+        ir = llvm_ir(ndrmul!, (M, M, M))
+    end
+    @test nmatches(r"fmul contract <4 x double>", ir) >= 4
 end

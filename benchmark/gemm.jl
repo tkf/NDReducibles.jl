@@ -4,21 +4,29 @@ using Referenceables
 using Transducers
 using Transducers: maybe_usesimd, BottomRF, SideEffect
 
-function ndrmul!(C, A, B)
-    simd = Val(:ivdep)
-
-    fill!(C, 0)
-
-    CAB = ndreducible(
+_ndrmul_reducible(C, A, B) =
+    ndreducible(
         referenceable(C) => (:i, :j),
         A => (:i, :k),
         B => (:k, :j),
     )
 
+function _ndrmul_rf()
+    simd = Val(:ivdep)
+
     rf = SideEffect() do (c, a, b)
         c[] = muladd(a, b, c[])
     end
-    transduce(maybe_usesimd(BottomRF{Any}(rf), simd), nothing, CAB)
+
+    return maybe_usesimd(BottomRF{Any}(rf), simd)
+end
+
+function ndrmul!(C, A, B)
+    fill!(C, 0)
+
+    CAB = _ndrmul_reducible(C, A, B)
+    rf = _ndrmul_rf()
+    transduce(rf, nothing, CAB)
 
     return C
 end
