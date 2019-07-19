@@ -2,7 +2,7 @@ using Base.Broadcast: broadcasted, instantiate
 using Test
 using MacroTools
 using NDReducibles
-using NDReducibles: AccessPattern, Index, plan, axisfor
+using NDReducibles: AccessPattern, Index, plan, _axisfor
 
 _indices(idxs::String) = Index.(Tuple(Symbol.(collect(idxs))))
 

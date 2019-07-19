@@ -133,7 +133,9 @@ end
     return acc
 end
 
-axisfor(patterns, i) =
+axisfor(patterns, i) = unreduced(_axisfor(patterns, i) :: Reduced)
+
+@inline _axisfor(patterns, i) =
     foldlargs(nothing, patterns...) do _, p::AccessPattern
         foldlargs(1, p.indices...) do n, j
             if j === i
@@ -142,7 +144,7 @@ axisfor(patterns, i) =
                 n + 1
             end
         end
-    end |> unreduced
+    end
 
 @inline tryaccess(patterns, indexmap, accessed) =
     map(patterns, accessed) do (p::AccessPattern), value

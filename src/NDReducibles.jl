@@ -15,6 +15,7 @@ using Transducers:
     @return_if_reduced,
     @simd_if,
     Foldable,
+    Reduced,
     Transducers,
     complete,
     foldlargs,

@@ -27,8 +27,8 @@ end
         ND(1) => (:i,),
         ND(2) => (:i, :j),
     ))
-    @test_inferred axisfor(patterns, Index(:i))
-    @test_inferred axisfor(patterns, Index(:j))
+    @test_inferred _axisfor(patterns, Index(:i))
+    @test_inferred _axisfor(patterns, Index(:j))
 end
 
 end  # module
