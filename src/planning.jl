@@ -47,6 +47,7 @@ AxesLayout(::Type{<:Union{
     <:Transpose{<:Any, <:ColumnMajor{1}},
     <:Transpose{<:Any, <:ColumnMajor{2}},
 }}) = HasFast(2, (1,))
+AxesLayout(::Type{A}) where {A <: ReferenceableArray} = AxesLayout(parenttype(A))
 
 AxesLayout(::Type{<:AbstractArray{<:Any, N}}) where N = NoFast{N}()
 AxesLayout(::Type{<:Ref}) = NoAxes()

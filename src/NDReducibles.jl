@@ -10,6 +10,7 @@ using Base:
 using Base.Broadcast: Broadcasted
 
 using LinearAlgebra: Adjoint, Transpose
+using Referenceables: ReferenceableArray, parenttype
 using Transducers:
     @next!,
     @return_if_reduced,

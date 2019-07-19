@@ -19,5 +19,5 @@ end
 
 @testset "ndrmul!" begin
     M = ones(0, 0)
-    @test_broken nmatches(r"<4 x double>", llvm_ir(ndrmul!, (M, M, M))) > 0
+    @test nmatches(r"fmul contract <4 x double>", llvm_ir(ndrmul!, (M, M, M))) >= 4
 end

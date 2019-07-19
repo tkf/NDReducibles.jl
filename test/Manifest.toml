@@ -93,7 +93,7 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
 [[NDReducibles]]
-deps = ["LinearAlgebra", "Transducers"]
+deps = ["LinearAlgebra", "Referenceables", "Transducers"]
 path = ".."
 uuid = "e7e9fd8f-232e-4126-95ea-53110d05d1fe"
 version = "0.1.0"
