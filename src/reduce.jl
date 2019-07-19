@@ -135,11 +135,11 @@ end
 
 axisfor(patterns, i) =
     foldlargs(nothing, patterns...) do _, p::AccessPattern
-        foldlargs(nothing, ntuple(identity, length(p.indices))...) do _, n
-            if p.indices[n] === i
+        foldlargs(1, p.indices...) do n, j
+            if j === i
                 reduced(axes(p.indexable)[n])
             else
-                nothing
+                n + 1
             end
         end
     end |> unreduced

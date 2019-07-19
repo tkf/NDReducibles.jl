@@ -12,7 +12,7 @@ f2() = plan(
     ND(2) => (:i, :j),
 )
 
-@testset begin
+@testset "plan" begin
     if VERSION < v"1.2-"
         @test_broken_inferred f1()
         @test_broken_inferred f2()
@@ -20,6 +20,15 @@ f2() = plan(
         @test_inferred f1()
         @test_inferred f2()
     end
+end
+
+@testset "axisfor" begin
+    patterns = AccessPattern.((
+        ND(1) => (:i,),
+        ND(2) => (:i, :j),
+    ))
+    @test_inferred axisfor(patterns, Index(:i))
+    @test_inferred axisfor(patterns, Index(:j))
 end
 
 end  # module
