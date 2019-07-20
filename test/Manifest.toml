@@ -51,7 +51,7 @@ uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[IRTest]]
 deps = ["Test"]
-git-tree-sha1 = "97684b5fe252d479eec33b19eb43e30731b0586f"
+git-tree-sha1 = "5f2778f64fdc9d2e29176869ba49167777ed1170"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/IRTest.jl"
 uuid = "c9680f28-2a59-47f6-98e4-d41620d42cd2"
@@ -169,7 +169,7 @@ version = "0.5.5"
 
 [[Transducers]]
 deps = ["ArgCheck", "BangBang", "InitialValues", "Markdown", "Requires", "Setfield"]
-git-tree-sha1 = "855ad83dbdc6a275be746431d001e8f3b45498f8"
+git-tree-sha1 = "da651d0e7cf5217239ec1e45885ae4561decbe82"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/Transducers.jl.git"
 uuid = "28d57a85-8fef-5791-bfe6-a80928e7c999"
