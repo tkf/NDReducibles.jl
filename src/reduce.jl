@@ -33,6 +33,7 @@ julia> foreach(
            simd = :ivdep,  # optional
        ) do (c, a, b)
            c[] += a * b
+           return  # not required but useful for performance
        end;
 
 julia> C == A * B
@@ -128,7 +129,7 @@ end
 @inline function _ndreduce(rf, acc, accessed, indexmap0, patterns, i)
     @simd_if rf for j in axisfor(patterns, i)
         indexmap = (indexmap0..., i => j)
-        @next!(rf, acc, tryaccess(patterns, indexmap, accessed))
+        acc = @next(rf, acc, tryaccess(patterns, indexmap, accessed))
     end
     return acc
 end

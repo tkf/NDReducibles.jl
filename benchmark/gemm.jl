@@ -16,6 +16,7 @@ function _ndrmul_rf()
 
     rf = SideEffect() do (c, a, b)
         c[] = muladd(a, b, c[])
+        return
     end
 
     return maybe_usesimd(BottomRF{Any}(rf), simd)

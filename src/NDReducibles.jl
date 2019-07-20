@@ -12,7 +12,7 @@ using Base.Broadcast: Broadcasted
 using LinearAlgebra: Adjoint, Transpose
 using Referenceables: ReferenceableArray, parenttype
 using Transducers:
-    @next!,
+    @next,
     @return_if_reduced,
     @simd_if,
     Foldable,
